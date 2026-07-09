@@ -1,0 +1,107 @@
+# 自动剪辑视频配置文件
+
+# 输入输出设置
+input:
+  video_path: "D:/videos/input.mp4"
+  audio_path: ""
+  max_duration: 300  # 最大处理时长（秒）
+
+# D盘输出路径
+output:
+  base_dir: "D:/"  # D盘根目录
+  project_dir: "D:/AutoClip_Projects"  # 项目主目录
+  output_dir: "D:/AutoClip_Projects/outputs"  # 最终输出目录
+  temp_dir: "D:/AutoClip_Projects/temp"  # 临时文件目录
+  format: "mp4"
+  quality: "high"  # low, medium, high
+  
+# 场景检测参数
+scene_detection:
+  enabled: true
+  method: "content"  # content, optical_flow, histogram
+  threshold: 0.3
+  min_clip_duration: 2  # 最短片段（秒）
+  max_clip_duration: 15  # 最长片段（秒）
+
+# 剪映配置
+jianyingcuts:
+  enabled: true
+  # 剪映PC客户端的常见安装路径
+  jianyingcuts_paths:
+    - "C:/Users/*/AppData/Local/JianyingPro/Jianyingcuts.exe"
+    - "C:/Program Files/JianyingPro/Jianyingcuts.exe"
+    - "C:/Program Files (x86)/JianyingPro/Jianyingcuts.exe"
+  # 或者指定完整路径
+  custom_path: null
+  
+  # 项目设置
+  project:
+    name: "auto_clip_project"
+    fps: 30
+    resolution: "1080x1920"  # 竖屏格式
+    
+  # 自动化设置
+  auto_settings:
+    enable_auto_detect: true  # 自动检测场景
+    auto_subtitle: true  # 自动生成字幕
+    auto_transition: true  # 自动转场
+    auto_music: true  # 自动配乐
+
+# 字幕设置
+subtitles:
+  enabled: true
+  language: "zh"  # 中文
+  auto_generate: true
+  font_size: 40
+  font_color: "white"
+  background_color: "black"
+  background_opacity: 0.7
+  position: "bottom"  # top, center, bottom
+  font_path: "./fonts/simhei.ttf"
+  # 导入到剪映
+  import_to_jianyingcuts: true
+
+# 音频处理
+audio:
+  sample_rate: 44100
+  volume_normalization: true
+  add_background_music: true
+  background_music_path: "D:/AutoClip_Projects/music/default.mp3"
+  background_music_volume: 0.3
+  fade_in_duration: 1
+  fade_out_duration: 1
+
+# 视频格式（抖音竖屏）
+video_format:
+  aspect_ratio: "9:16"  # 竖屏
+  width: 1080
+  height: 1920
+  fps: 30
+  codec: "libx264"
+  preset: "medium"  # ultrafast, fast, medium, slow
+
+# 背景填充
+background:
+  method: "blur"  # blur, solid_color, extend
+  blur_amount: 15
+  solid_color: "000000"  # 黑色
+
+# 转场效果
+transitions:
+  enabled: true
+  duration: 0.5  # 转场时长（秒）
+  type: "fade"  # fade, slide, zoom, wipe
+  
+# 滤镜效果
+filters:
+  enabled: true
+  brightness: 1.0
+  contrast: 1.0
+  saturation: 1.0
+
+# 处理设置
+processing:
+  use_gpu: true
+  max_workers: 4
+  cache_frames: true
+  temp_dir: "D:/AutoClip_Projects/temp"
