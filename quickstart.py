@@ -87,17 +87,14 @@ def main():
     print("[步骤9] 最终信息...")
     print("="*60)
     
-    # 显示项目信息
-    print("\n📊 项目信息:")
+    print("\n📋 项目信息:")
     info = processor.get_project_info()
     for key, value in info.items():
         print(f"  {key}: {value}")
     
-    # 显示D盘状态
     print("\n💾 D盘状态:")
     usage = processor.show_d_drive_status()
     
-    # 列出输出文件
     print("\n📂 输出文件:")
     files = processor.list_output_files()
     
